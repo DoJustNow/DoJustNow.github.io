@@ -1,0 +1,63 @@
+.container{
+    margin: 0 auto;
+    width: 253px;
+}
+
+.game_field{
+    width: 253px;
+    margin: 0 auto;
+}
+span{
+    display: block;
+    width: 253px;
+}
+.col {
+
+    float: left;
+    /*float: left;*/
+    /*border-radius: 4px;*/
+    opacity: 0.8;
+}
+
+.td:hover{
+    box-shadow: inset 0px 0px 10px 1px black;
+    transition: box-shadow 0.4s;
+}
+.td{
+    float: left;
+    transition: box-shadow 0.4s;
+    border: 1px solid black;
+    padding: 0;
+    width: 26px;
+    height: 26px;
+    /*box-shadow: inset 0px 0px 1px 1px #90de2e;*/
+    cursor: pointer;
+}
+.g {
+    text-align: center;
+    border: 1px solid #4547ff;
+    border-radius: 3px;
+    background: #e0e0e0;
+    /*box-shadow: inset 0px 0px 10px -1px black;*/
+}
+p {
+user-select: none;
+
+}
+span{
+
+text-align: center;
+border: 1px solid #4547ff;
+border-radius: 3px;
+background: #e0e0e0;
+box-shadow: inset 0px 0px 10px -1px black;
+cursor: pointer;
+
+}
+span:hover{
+    transition: .1s;
+    width: 245px;
+background: #d9d9d9;
+border: 1px solid #7f7cff;
+box-shadow: inset 0px 0px 10px 0px black;
+}
