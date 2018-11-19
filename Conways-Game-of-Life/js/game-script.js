@@ -27,20 +27,33 @@ $(document).ready(function () {
     refreshGameField();
     var intervalId;
     $(".next_step").bind("click", function (event) {
-
+        var elementAlert =document.getElementById('alert');
+        $(elementAlert).attr('style','display: none');
         if(step()===false) {
-            alert('Game Over за '+generation+' шагов');
+            var elementAlert =document.getElementById('alert');
+            $(elementAlert).attr('style','display: block');
+            document.getElementById('finish').innerHTML = generation;
+            var element = document.getElementById('pb');
+            $(element).attr('style','width: 100%' );
         generation = 0;
         field_values = [];
         }
     });
     $(".random").bind("click", function (event) {
+        var element = document.getElementById('pb');
+        $(element).attr('style','width: 0%' );
+        var elementAlert =document.getElementById('alert');
+        $(elementAlert).attr('style','display: none');
         generation = 0;
         field = matrix(size, size);
         refreshGameField();
 
     });
     $(".clear_field").bind("click", function (event) {
+        var element = document.getElementById('pb');
+        $(element).attr('style','width: 0%' );
+        var elementAlert =document.getElementById('alert');
+        $(elementAlert).attr('style','display: none');
         generation = 0;
         field = matrix(size, size, 0);
         field_next = matrix(size, size, 0);
@@ -48,19 +61,29 @@ $(document).ready(function () {
     });
 
     $(".run").bind("click", function (event) {
+        var elementAlert =document.getElementById('alert');
+        $(elementAlert).attr('style','display: none');
         intervalId = setInterval(function () {
             if(step()===false) {
                 clearInterval(intervalId);
-                alert('Game Over за '+generation+' шагов');
+                var elementAlert =document.getElementById('alert');
+                $(elementAlert).attr('style','display: block');
+                document.getElementById('finish').innerHTML = generation;
+                var element = document.getElementById('pb');
+                $(element).attr('style','width: 100%' );
             generation =0;
                 field_values = [];
             }
         }, 100);
     });
     $(".stop").bind("click", function (event) {
+        var elementAlert =document.getElementById('alert');
+        $(elementAlert).attr('style','display: none');
         clearInterval(intervalId);
     });
     $(".pack").bind("click", function (event) {
+        var elementAlert =document.getElementById('alert');
+        $(elementAlert).attr('style','display: none');
         var unpackValue = document.getElementById('test').value;
         if (!(/^\+?\d+$/.test(unpackValue) && (+unpackValue<=maxPackValue))) {alert('Неверно введенное число. Введите десятичное' +
             ' число в диапазоне от 0 до '+maxPackValue+'((2^25)-1)');}
@@ -70,6 +93,8 @@ $(document).ready(function () {
         }
     });
     $(".unpack").bind("click", function (event) {
+        var elementAlert =document.getElementById('alert');
+        $(elementAlert).attr('style','display: none');
         var packValue = array2String();
         document.getElementById('test').value = packValue;
         //alert(array2String());
@@ -98,6 +123,8 @@ function step() {
         if((field_values[generation]==field_values[i]) && (generation != i) || field_values[generation]==0) return false;
     }
     generation++;
+    var element = document.getElementById('pb');
+    $(element).attr('style','width:' +generation*10+ '%' );
     for (var i = 0; i < field.length; i++)
         for (var j = 0; j < field.length; j++) {
             var neighbors_count = 0;

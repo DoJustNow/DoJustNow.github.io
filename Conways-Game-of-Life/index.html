@@ -3,28 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <title>Game of Life</title>
+    <!-- CSS -->
     <link rel="stylesheet" href="css/GameField.css">
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- JQUERY -->
     <script src="lib/jquery-3.3.1.js"></script>
+    <!-- GAME LOGIC -->
     <script src="js/game-script.js"></script>
-    </script>
 </head>
 <body>
 <div class="container">
-    <p class="g" style="width: 253px;text-align: center">Поколение: <b id="gen">0</b></p>
-    <p>
-        <span class="next_step">NEXT STEP</span>
-        <span class="random">RANDOM</span>
-        <span class="clear_field">CLEAR</span>
-        <span class="run">RUN</span>
-        <span class="stop">STOP</span>
-        Тестовые кнопки для показа работы функций распаковки/запаковки:
-        <input type="text" id="test">
-        <span class="pack">ЗАПАКОВАТЬ ДАННЫЕ</span>
-        <span class="unpack">РАСПАКОВАТЬ ДАННЫЕ</span>
-    </p>
-    <div class="game_field">
+    <div class="row justify-content-center mt-2">
+    <div class="alert alert-primary info col-2 text-center" role="alert">
+        Поколение: <b id="gen">0</b>
+    </div>
+    </div>
+    <div class="row justify-content-center mb-2">
+        <div class="btn-group">
+            <button type="button" class="btn btn-outline-primary next_step">NEXT</button>
+            <button type="button" class="btn btn-outline-primary random">RANDOM</button>
+            <button type="button" class="btn btn-outline-primary clear_field">TO CLEAR</button>
+            <button type="button" class="btn btn-outline-primary run">RUN</button>
+            <button type="button" class="btn btn-outline-primary stop">STOP</button>
+        </div>
+    </div>
+    <div class="row justify-content-center mb-2">
+        <input type="text" class="form-control col-4 text-center" id="test" placeholder="Десятичное число">
+    </div>
+    <div class="row justify-content-center mb-2">
+        <div class="btn-group">
+            <button type="button" class="btn btn-outline-success pack">TO PACK</button>
+            <button type="button" class="btn btn-outline-success unpack">TO UNPACK</button>
+        </div>
+    </div>
+    <div class="row justify-content-center mb-2">
+        <div class="game_field justify-content-center col-2"></div>
+    </div>
+    <div class="row justify-content-center mb-2">
+        <div class="progress" style="width: 300px">
+            <div class="progress-bar progress-bar-striped progress-bar-animated" id="pb"></div>
+        </div>
+    </div>
+    <div class="row justify-content-center mb-2">
+    <div class="alert alert-success col-4 info" style="display: none" id="alert">
+        GAMEOVER за <b id="finish">0</b> шагов.
+    </div>
     </div>
 </div>
-<div class="print"></div>
 </body>
 </html>
